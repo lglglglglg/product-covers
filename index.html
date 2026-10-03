@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="可直接复制 HTTPS 地址的商品封面图集。" />
+    <title>商品封面图集</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d4ed8'/%3E%3Cpath d='M17 19h30v26H17z' fill='none' stroke='white' stroke-width='5' stroke-linejoin='round'/%3E%3Ccircle cx='27' cy='29' r='4' fill='white'/%3E%3Cpath d='m20 41 9-8 6 5 5-5 7 8' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #14213d;
+        --muted: #61708c;
+        --line: #dce3ef;
+        --canvas: #eef3fa;
+        --card: #ffffff;
+        --blue: #155eef;
+        --blue-dark: #0647c8;
+        --shadow: 0 24px 60px rgb(26 50 94 / 14%);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 5%, rgb(126 167 255 / 28%), transparent 27rem),
+          radial-gradient(circle at 92% 92%, rgb(92 212 185 / 18%), transparent 28rem),
+          var(--canvas);
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        width: min(100% - 2rem, 1000px);
+        margin: 0 auto;
+        padding: clamp(2.5rem, 7vw, 5.5rem) 0;
+      }
+
+      .intro { margin-bottom: 2rem; }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        margin: 0 0 .85rem;
+        color: var(--blue-dark);
+        font-size: .875rem;
+        font-weight: 750;
+        letter-spacing: .04em;
+      }
+
+      .eyebrow::before {
+        width: .6rem;
+        height: .6rem;
+        border-radius: 50%;
+        background: var(--blue);
+        content: "";
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        letter-spacing: -.055em;
+        line-height: 1.06;
+      }
+
+      .intro p {
+        max-width: 35rem;
+        margin: 1rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(18rem, .94fr);
+        overflow: hidden;
+        border: 1px solid rgb(255 255 255 / 78%);
+        border-radius: 1.5rem;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+      .image-pane {
+        display: grid;
+        place-items: center;
+        min-height: 26rem;
+        padding: clamp(1rem, 3vw, 2rem);
+        background: linear-gradient(135deg, #d7e6ff, #edf4ff 52%, #c8f3e8);
+      }
+
+      .image-pane img {
+        display: block;
+        width: min(100%, 29rem);
+        aspect-ratio: 1;
+        border-radius: 1rem;
+        box-shadow: 0 14px 36px rgb(20 42 86 / 24%);
+        object-fit: cover;
+      }
+
+      .detail-pane {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .detail-pane h2 {
+        margin: 0;
+        font-size: clamp(1.35rem, 3vw, 1.8rem);
+        letter-spacing: -.03em;
+      }
+
+      .meta {
+        margin: .75rem 0 1.75rem;
+        color: var(--muted);
+        font-size: .9375rem;
+      }
+
+      .url-label {
+        display: block;
+        margin-bottom: .55rem;
+        color: var(--muted);
+        font-size: .875rem;
+        font-weight: 650;
+      }
+
+      .url-box {
+        overflow-wrap: anywhere;
+        padding: .85rem .95rem;
+        border: 1px solid var(--line);
+        border-radius: .75rem;
+        background: #f8faff;
+        color: #33415d;
+        font: .8rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 1rem;
+        padding: .9rem 1rem;
+        border: 0;
+        border-radius: .75rem;
+        background: var(--blue);
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 750;
+        transition: background .18s ease, transform .18s ease;
+      }
+
+      button:hover { background: var(--blue-dark); }
+      button:active { transform: translateY(1px); }
+      button:focus-visible { outline: 3px solid #8bb7ff; outline-offset: 3px; }
+
+      .hint {
+        min-height: 1.4rem;
+        margin: .7rem 0 0;
+        color: var(--muted);
+        font-size: .8125rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      @media (max-width: 720px) {
+        main { width: min(100% - 1.25rem, 32rem); padding-top: 2.25rem; }
+        .gallery { grid-template-columns: 1fr; }
+        .image-pane { min-height: 0; }
+        .detail-pane { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <div class="eyebrow">GitHub Pages 图集</div>
+        <h1>商品封面</h1>
+        <p>点击按钮即可复制图片的 HTTPS 地址，直接粘贴到商品发布平台使用。</p>
+      </header>
+
+      <section class="gallery" aria-labelledby="cover-title">
+        <div class="image-pane">
+          <img src="macOS-store-download.png" alt="macOS-store-download 商品封面" />
+        </div>
+        <div class="detail-pane">
+          <h2 id="cover-title">macOS-store-download</h2>
+          <p class="meta">PNG · 1280 × 1280</p>
+          <span class="url-label">商品平台使用的图片 HTTPS 链接</span>
+          <div class="url-box" id="image-url">正在生成链接…</div>
+          <button id="copy-button" type="button">复制 HTTPS 链接</button>
+          <p class="hint" id="copy-status" aria-live="polite">复制后可直接粘贴到商品封面地址栏。</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const imagePath = "macOS-store-download.png";
+      const imageUrl = new URL(imagePath, document.baseURI).href;
+      const urlBox = document.querySelector("#image-url");
+      const copyButton = document.querySelector("#copy-button");
+      const copyStatus = document.querySelector("#copy-status");
+
+      urlBox.textContent = imageUrl;
+
+      async function copyImageLink() {
+        try {
+          await navigator.clipboard.writeText(imageUrl);
+        } catch {
+          const helper = document.createElement("textarea");
+          helper.value = imageUrl;
+          helper.setAttribute("readonly", "");
+          helper.style.position = "fixed";
+          helper.style.opacity = "0";
+          document.body.append(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+        }
+
+        copyButton.textContent = "已复制 ✓";
+        copyStatus.textContent = "图片 HTTPS 链接已复制，现在可以粘贴到商品平台。";
+        window.setTimeout(() => {
+          copyButton.textContent = "复制 HTTPS 链接";
+          copyStatus.textContent = "复制后可直接粘贴到商品封面地址栏。";
+        }, 1800);
+      }
+
+      copyButton.addEventListener("click", copyImageLink);
+    </script>
+  </body>
+</html>
