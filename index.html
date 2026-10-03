@@ -114,16 +114,15 @@
 
       .cover-preview {
         display: grid;
-        min-height: 17rem;
         place-items: center;
-        padding: 1.25rem;
+        padding: 1rem;
         background: linear-gradient(135deg, #d9e8ff, #eff5ff 52%, #caf2e8);
       }
 
       .cover-preview img {
         display: block;
-        width: min(100%, 26rem);
-        aspect-ratio: 1;
+        width: 100%;
+        aspect-ratio: 16 / 9;
         border-radius: .85rem;
         box-shadow: 0 12px 28px rgb(20 42 86 / 22%);
         object-fit: cover;
@@ -203,7 +202,6 @@
       @media (max-width: 760px) {
         main { width: min(100% - 1.25rem, 34rem); padding-top: 2.25rem; }
         .cover-grid { grid-template-columns: 1fr; }
-        .cover-preview { min-height: 0; }
       }
     </style>
   </head>
