@@ -14,13 +14,13 @@
       :root {
         color-scheme: light;
         --ink: #14213d;
-        --muted: #61708c;
-        --line: #dce3ef;
+        --muted: #63718d;
+        --line: #dce4f0;
         --canvas: #eef3fa;
         --card: #ffffff;
         --blue: #155eef;
         --blue-dark: #0647c8;
-        --shadow: 0 24px 60px rgb(26 50 94 / 14%);
+        --shadow: 0 20px 46px rgb(26 50 94 / 12%);
       }
 
       * { box-sizing: border-box; }
@@ -30,19 +30,19 @@
         margin: 0;
         color: var(--ink);
         background:
-          radial-gradient(circle at 12% 5%, rgb(126 167 255 / 28%), transparent 27rem),
-          radial-gradient(circle at 92% 92%, rgb(92 212 185 / 18%), transparent 28rem),
+          radial-gradient(circle at 10% 0%, rgb(126 167 255 / 28%), transparent 30rem),
+          radial-gradient(circle at 100% 95%, rgb(92 212 185 / 18%), transparent 32rem),
           var(--canvas);
         font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
       }
 
       main {
-        width: min(100% - 2rem, 1000px);
+        width: min(100% - 2rem, 1180px);
         margin: 0 auto;
-        padding: clamp(2.5rem, 7vw, 5.5rem) 0;
+        padding: clamp(2.5rem, 6vw, 5.5rem) 0;
       }
 
-      .intro { margin-bottom: 2rem; }
+      .intro { margin-bottom: 2.25rem; }
 
       .eyebrow {
         display: inline-flex;
@@ -65,89 +65,110 @@
 
       h1 {
         margin: 0;
-        font-size: clamp(2rem, 5vw, 3.25rem);
+        font-size: clamp(2.15rem, 5vw, 3.5rem);
         letter-spacing: -.055em;
         line-height: 1.06;
       }
 
-      .intro p {
-        max-width: 35rem;
+      .intro p:last-child {
+        max-width: 40rem;
         margin: 1rem 0 0;
         color: var(--muted);
         font-size: 1rem;
         line-height: 1.7;
       }
 
-      .gallery {
+      .gallery-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .gallery-heading h2 {
+        margin: 0;
+        font-size: 1.125rem;
+        letter-spacing: -.02em;
+      }
+
+      .gallery-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: .875rem;
+      }
+
+      .cover-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(18rem, .94fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .cover-card {
         overflow: hidden;
         border: 1px solid rgb(255 255 255 / 78%);
-        border-radius: 1.5rem;
+        border-radius: 1.25rem;
         background: var(--card);
         box-shadow: var(--shadow);
       }
 
-      .image-pane {
+      .cover-preview {
         display: grid;
+        min-height: 17rem;
         place-items: center;
-        min-height: 26rem;
-        padding: clamp(1rem, 3vw, 2rem);
-        background: linear-gradient(135deg, #d7e6ff, #edf4ff 52%, #c8f3e8);
+        padding: 1.25rem;
+        background: linear-gradient(135deg, #d9e8ff, #eff5ff 52%, #caf2e8);
       }
 
-      .image-pane img {
+      .cover-preview img {
         display: block;
-        width: min(100%, 29rem);
+        width: min(100%, 26rem);
         aspect-ratio: 1;
-        border-radius: 1rem;
-        box-shadow: 0 14px 36px rgb(20 42 86 / 24%);
+        border-radius: .85rem;
+        box-shadow: 0 12px 28px rgb(20 42 86 / 22%);
         object-fit: cover;
       }
 
-      .detail-pane {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: clamp(1.5rem, 4vw, 3rem);
-      }
+      .cover-details { padding: 1.35rem; }
 
-      .detail-pane h2 {
+      .cover-card h3 {
+        overflow-wrap: anywhere;
         margin: 0;
-        font-size: clamp(1.35rem, 3vw, 1.8rem);
-        letter-spacing: -.03em;
+        font-size: 1.25rem;
+        letter-spacing: -.025em;
       }
 
       .meta {
-        margin: .75rem 0 1.75rem;
+        margin: .5rem 0 1.25rem;
         color: var(--muted);
-        font-size: .9375rem;
+        font-size: .875rem;
       }
 
       .url-label {
         display: block;
-        margin-bottom: .55rem;
+        margin-bottom: .5rem;
         color: var(--muted);
-        font-size: .875rem;
-        font-weight: 650;
+        font-size: .8125rem;
+        font-weight: 700;
       }
 
       .url-box {
+        min-height: 4.2rem;
         overflow-wrap: anywhere;
-        padding: .85rem .95rem;
+        padding: .75rem .85rem;
         border: 1px solid var(--line);
-        border-radius: .75rem;
+        border-radius: .7rem;
         background: #f8faff;
         color: #33415d;
-        font: .8rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font: .75rem/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
 
       button {
         width: 100%;
-        margin-top: 1rem;
-        padding: .9rem 1rem;
+        margin-top: .85rem;
+        padding: .8rem 1rem;
         border: 0;
-        border-radius: .75rem;
+        border-radius: .7rem;
         background: var(--blue);
         color: #fff;
         cursor: pointer;
@@ -160,20 +181,29 @@
       button:active { transform: translateY(1px); }
       button:focus-visible { outline: 3px solid #8bb7ff; outline-offset: 3px; }
 
-      .hint {
-        min-height: 1.4rem;
-        margin: .7rem 0 0;
+      .copy-status {
+        min-height: 1.25rem;
+        margin: .55rem 0 0;
         color: var(--muted);
-        font-size: .8125rem;
+        font-size: .75rem;
         line-height: 1.4;
         text-align: center;
       }
 
-      @media (max-width: 720px) {
-        main { width: min(100% - 1.25rem, 32rem); padding-top: 2.25rem; }
-        .gallery { grid-template-columns: 1fr; }
-        .image-pane { min-height: 0; }
-        .detail-pane { padding: 1.5rem; }
+      .state {
+        grid-column: 1 / -1;
+        margin: 0;
+        padding: 2rem;
+        border: 1px dashed #aebed6;
+        border-radius: 1rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        main { width: min(100% - 1.25rem, 34rem); padding-top: 2.25rem; }
+        .cover-grid { grid-template-columns: 1fr; }
+        .cover-preview { min-height: 0; }
       }
     </style>
   </head>
@@ -182,39 +212,34 @@
       <header class="intro">
         <div class="eyebrow">GitHub Pages 图集</div>
         <h1>商品封面</h1>
-        <p>点击按钮即可复制图片的 HTTPS 地址，直接粘贴到商品发布平台使用。</p>
+        <p>每张封面都有独立的 HTTPS 地址；点击按钮复制后，可直接粘贴到商品发布平台。</p>
       </header>
 
-      <section class="gallery" aria-labelledby="cover-title">
-        <div class="image-pane">
-          <img src="macOS-store-download.png" alt="macOS-store-download 商品封面" />
+      <section aria-labelledby="gallery-title">
+        <div class="gallery-heading">
+          <h2 id="gallery-title">全部封面</h2>
+          <p id="gallery-summary">正在载入图集…</p>
         </div>
-        <div class="detail-pane">
-          <h2 id="cover-title">macOS-store-download</h2>
-          <p class="meta">PNG · 1280 × 1280</p>
-          <span class="url-label">商品平台使用的图片 HTTPS 链接</span>
-          <div class="url-box" id="image-url">正在生成链接…</div>
-          <button id="copy-button" type="button">复制 HTTPS 链接</button>
-          <p class="hint" id="copy-status" aria-live="polite">复制后可直接粘贴到商品封面地址栏。</p>
-        </div>
+        <div class="cover-grid" id="cover-grid" aria-live="polite"></div>
       </section>
     </main>
 
     <script>
-      const imagePath = "macOS-store-download.png";
-      const imageUrl = new URL(imagePath, document.baseURI).href;
-      const urlBox = document.querySelector("#image-url");
-      const copyButton = document.querySelector("#copy-button");
-      const copyStatus = document.querySelector("#copy-status");
+      const grid = document.querySelector("#cover-grid");
+      const summary = document.querySelector("#gallery-summary");
+      const manifestUrl = new URL("images/manifest.json", document.baseURI);
 
-      urlBox.textContent = imageUrl;
+      function imageUrl(filename) {
+        return new URL(`images/${encodeURIComponent(filename)}`, document.baseURI).href;
+      }
 
-      async function copyImageLink() {
+      async function copyText(value) {
         try {
-          await navigator.clipboard.writeText(imageUrl);
+          await navigator.clipboard.writeText(value);
+          return;
         } catch {
           const helper = document.createElement("textarea");
-          helper.value = imageUrl;
+          helper.value = value;
           helper.setAttribute("readonly", "");
           helper.style.position = "fixed";
           helper.style.opacity = "0";
@@ -223,16 +248,85 @@
           document.execCommand("copy");
           helper.remove();
         }
-
-        copyButton.textContent = "已复制 ✓";
-        copyStatus.textContent = "图片 HTTPS 链接已复制，现在可以粘贴到商品平台。";
-        window.setTimeout(() => {
-          copyButton.textContent = "复制 HTTPS 链接";
-          copyStatus.textContent = "复制后可直接粘贴到商品封面地址栏。";
-        }, 1800);
       }
 
-      copyButton.addEventListener("click", copyImageLink);
+      function makeCoverCard(cover) {
+        const url = imageUrl(cover.filename);
+        const card = document.createElement("article");
+        card.className = "cover-card";
+
+        const preview = document.createElement("a");
+        preview.className = "cover-preview";
+        preview.href = url;
+        preview.target = "_blank";
+        preview.rel = "noreferrer";
+        preview.setAttribute("aria-label", `查看 ${cover.title} 原图`);
+
+        const image = document.createElement("img");
+        image.src = `images/${encodeURIComponent(cover.filename)}`;
+        image.alt = `${cover.title} 商品封面`;
+        image.loading = "lazy";
+        preview.append(image);
+
+        const details = document.createElement("div");
+        details.className = "cover-details";
+
+        const title = document.createElement("h3");
+        title.textContent = cover.title;
+
+        const meta = document.createElement("p");
+        meta.className = "meta";
+        meta.textContent = `${cover.format} · ${cover.dimensions}`;
+
+        const label = document.createElement("span");
+        label.className = "url-label";
+        label.textContent = "商品平台使用的图片 HTTPS 链接";
+
+        const urlBox = document.createElement("div");
+        urlBox.className = "url-box";
+        urlBox.textContent = url;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "复制 HTTPS 链接";
+
+        const status = document.createElement("p");
+        status.className = "copy-status";
+        status.setAttribute("aria-live", "polite");
+        status.textContent = "复制后可直接粘贴到商品封面地址栏。";
+
+        button.addEventListener("click", async () => {
+          await copyText(url);
+          button.textContent = "已复制 ✓";
+          status.textContent = "图片 HTTPS 链接已复制，现在可以粘贴到商品平台。";
+          window.setTimeout(() => {
+            button.textContent = "复制 HTTPS 链接";
+            status.textContent = "复制后可直接粘贴到商品封面地址栏。";
+          }, 1800);
+        });
+
+        details.append(title, meta, label, urlBox, button, status);
+        card.append(preview, details);
+        return card;
+      }
+
+      async function loadCovers() {
+        try {
+          const response = await fetch(manifestUrl);
+          if (!response.ok) throw new Error("无法读取图集清单");
+          const { covers } = await response.json();
+          const orderedCovers = [...covers].sort((a, b) => b.sortOrder - a.sortOrder);
+          const fragment = document.createDocumentFragment();
+          orderedCovers.forEach((cover) => fragment.append(makeCoverCard(cover)));
+          grid.replaceChildren(fragment);
+          summary.textContent = `${orderedCovers.length} 个封面 · 最新添加在前`;
+        } catch {
+          grid.innerHTML = '<p class="state">图集清单暂时无法加载，请刷新页面后重试。</p>';
+          summary.textContent = "加载失败";
+        }
+      }
+
+      loadCovers();
     </script>
   </body>
 </html>

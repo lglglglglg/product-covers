@@ -2,18 +2,35 @@
 
 HTTPS-hosted product cover images for storefront listings.
 
-## Published image
+## Public page
 
-- `macOS-store-download.png` — first product cover, 1280 × 1280 PNG.
+Open the gallery page at:
+
+`https://lglglglglg.github.io/product-covers/`
+
+Every card has a button that copies its own storefront-ready HTTPS image URL.
+
+## Structure and ordering
+
+```text
+index.html             # Gallery page
+images/
+  manifest.json         # Cover metadata and display order
+  macOS-store-download.png
+  xiaoshuo-download.png
+```
+
+All cover files live in `images/`; do not place them at the repository root. The gallery sorts by `sortOrder` in `images/manifest.json`, from largest to smallest, so a newly added cover appears first.
+
+## Add a new cover
+
+1. Put the image in `images/` using a stable lowercase English filename, such as `product-003.png`.
+2. Add an item to `images/manifest.json`, using the next larger `sortOrder` value.
+3. Push the change. GitHub Pages will update the gallery and its copyable link.
+
+Do not rename or overwrite a file after its URL has been used in a product listing.
 
 ## Direct links
 
-After this repository is pushed, the raw HTTPS file URL is:
-
-`https://raw.githubusercontent.com/lglglglglg/product-covers/main/macOS-store-download.png`
-
-After GitHub Pages is enabled for the `main` branch at the repository root, use this storefront-facing URL:
-
-`https://lglglglglg.github.io/product-covers/macOS-store-download.png`
-
-Use lowercase English filenames, digits, and hyphens for future images so their URLs remain easy to manage.
+- Page image URL pattern: `https://lglglglglg.github.io/product-covers/images/<filename>`
+- Raw GitHub URL pattern: `https://raw.githubusercontent.com/lglglglglg/product-covers/main/images/<filename>`
