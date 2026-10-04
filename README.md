@@ -24,9 +24,11 @@ All cover files live in `images/`; do not place them at the repository root. The
 
 ## Add a new cover
 
-1. Put the image in `images/` using a stable lowercase English filename, such as `product-003.png`.
+1. Put the image in `images/` using a stable lowercase English filename, such as `product-003.png` or `brand-banner.svg`.
 2. Add an item to `images/manifest.json`, using the next larger `sortOrder` value.
 3. Push the change. GitHub Pages will update the gallery and its copyable link.
+
+For a wide SVG banner, add `"display": "banner"` to its item so the gallery shows the entire image rather than cropping it to 16:9.
 
 Do not rename or overwrite a file after its URL has been used in a product listing.
 

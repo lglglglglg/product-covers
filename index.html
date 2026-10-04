@@ -128,6 +128,20 @@
         object-fit: cover;
       }
 
+      .cover-card--banner {
+        grid-column: 1 / -1;
+      }
+
+      .cover-card--banner .cover-preview {
+        background: linear-gradient(135deg, #edf5ff, #fff 50%, #edf9f5);
+      }
+
+      .cover-card--banner .cover-preview img {
+        width: min(100%, 680px);
+        aspect-ratio: 17 / 4;
+        object-fit: contain;
+      }
+
       .cover-details { padding: 1.35rem; }
 
       .cover-card h3 {
@@ -251,7 +265,7 @@
       function makeCoverCard(cover) {
         const url = imageUrl(cover.filename);
         const card = document.createElement("article");
-        card.className = "cover-card";
+        card.className = `cover-card${cover.display === "banner" ? " cover-card--banner" : ""}`;
 
         const preview = document.createElement("a");
         preview.className = "cover-preview";

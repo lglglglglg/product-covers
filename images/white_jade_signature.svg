@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 160" width="100%" height="100%">
+  <defs>
+    <!-- 凝脂冷翠·月华素玉底色 (极光滑温润的冷白羊脂玉感) -->
+    <linearGradient id="lunar-jade-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcfeff"/>
+      <stop offset="40%" stop-color="#f6f9fc"/>
+      <stop offset="75%" stop-color="#eff4fa"/>
+      <stop offset="100%" stop-color="#e8eef6"/>
+    </linearGradient>
+
+    <!-- 纯白解离万色：极轻灵的蛋白石(Opal)流光折射 (纯净中流动着微透的樱粉、冰青、淡金与浅紫) -->
+    <linearGradient id="opal-shimmer" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#ffdbe4" stop-opacity="0.32"/>
+      <stop offset="40%" stop-color="#fff8db" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#d6f5ea" stop-opacity="0.32"/>
+      <stop offset="80%" stop-color="#dae8ff" stop-opacity="0.36"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 琉璃高足玉盏杯体通透质感渐变 -->
+    <linearGradient id="glass-cup-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#eaf3fc" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#cde2f7" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#a8c7e6" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <!-- 盏中月魄琼浆光晕 (酒气化为流光) -->
+    <linearGradient id="wine-liquid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e1effd"/>
+      <stop offset="100%" stop-color="#b6d5f5"/>
+    </linearGradient>
+
+    <!-- 杯后素月柔光 (月华圆融) -->
+    <radialGradient id="moon-disc-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#e6f2fe" stop-opacity="0.6"/>
+      <stop offset="80%" stop-color="#d8ebfa" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <clipPath id="frame-clip">
+      <rect x="14" y="14" width="652" height="132" rx="10" ry="10"/>
+    </clipPath>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&amp;family=Cinzel:ital,wght@0,400;1,500&amp;display=swap');
+
+      /* 动画一：灵动流光掠影 (光滑如冰玉) */
+      @keyframes opalWave {
+        0% { transform: translateX(-350px) rotate(-15deg); opacity: 0; }
+        15% { opacity: 0.9; }
+        50% { opacity: 1; }
+        85% { opacity: 0.85; }
+        100% { transform: translateX(950px) rotate(-15deg); opacity: 0; }
+      }
+
+      /* 动画二：盏中月魄琼浆与素月的柔和呼吸 */
+      @keyframes chaliceGlow {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 2px 5px rgba(175, 205, 240, 0.4)); }
+        50% { transform: scale(1.02); filter: drop-shadow(0 2px 12px rgba(160, 200, 245, 0.8)); }
+      }
+
+      /* 动画三：酒气化为流云轻烟，袅袅升腾 (梦境浮动之感) */
+      @keyframes vaporDrift1 {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+        50% { transform: translate(4px, -3px) scale(1.03); opacity: 0.85; }
+      }
+      @keyframes vaporDrift2 {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.45; }
+        50% { transform: translate(-3px, -2px) scale(0.98); opacity: 0.75; }
+      }
+
+      /* 动画四：星汉碎屑与酒露升腾消散 (胡思乱想化作梦中星芒) */
+      @keyframes dewFloat1 {
+        0% { transform: translateY(0px); opacity: 0; }
+        40% { opacity: 0.9; }
+        80% { opacity: 0.6; }
+        100% { transform: translateY(-18px) translateX(6px); opacity: 0; }
+      }
+      @keyframes dewFloat2 {
+        0% { transform: translateY(0px); opacity: 0; }
+        35% { opacity: 0.85; }
+        75% { opacity: 0.5; }
+        100% { transform: translateY(-22px) translateX(-5px); opacity: 0; }
+      }
+
+      .bg-rect { fill: url(#lunar-jade-bg); }
+      
+      .opal-slider {
+        animation: opalWave 10s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+      }
+
+      .chalice-group {
+        transform-origin: 115px 85px;
+        animation: chaliceGlow 6.5s ease-in-out infinite;
+      }
+
+      .vapor-1 { animation: vaporDrift1 8s ease-in-out infinite; }
+      .vapor-2 { animation: vaporDrift2 9.5s ease-in-out infinite; }
+
+      .dew-a { animation: dewFloat1 4.5s ease-in-out infinite; }
+      .dew-b { animation: dewFloat2 5.2s ease-in-out infinite 1.8s; }
+      .dew-c { animation: dewFloat1 4.8s ease-in-out infinite 2.5s; }
+
+      .title-text {
+        font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif;
+        font-size: 19.5px;
+        font-weight: 500;
+        letter-spacing: 2.4px;
+        fill: #1a222d;
+      }
+
+      .subtitle-text {
+        font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 1.1px;
+        fill: #5d6d80;
+      }
+
+      .brand-text {
+        font-family: 'Cinzel', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+        fill: #8598af;
+      }
+
+      .ruler-line {
+        stroke: #c8d7e6;
+        stroke-width: 0.8;
+        stroke-dasharray: 4 5;
+        opacity: 0.85;
+      }
+    </style>
+  </defs>
+
+  <!-- 视窗底板 -->
+  <g clip-path="url(#frame-clip)">
+    <rect x="14" y="14" width="652" height="132" class="bg-rect"/>
+
+    <!-- 纯白解离万色 · 幻彩流光带 -->
+    <rect x="-150" y="-30" width="300" height="220" fill="url(#opal-shimmer)" class="opal-slider"/>
+
+    <!-- 诗行上下典雅标尺虚线 -->
+    <line x1="205" y1="46" x2="620" y2="46" class="ruler-line"/>
+    <line x1="205" y1="114" x2="620" y2="114" class="ruler-line"/>
+
+    <!-- ==================== 左侧原创美学重构：【琉璃夜光盏 · 倾酒化星云】==================== -->
+    <!-- (彻底告别游戏罗盘星标！采用古典高足琉璃酒盏、月魄冰轮与酒化星烟，意合「劝君更尽一杯酒」) -->
+    <g class="chalice-group">
+      <!-- 1. 背景温润圆融素月 (Jade Moon Disc) -->
+      <circle cx="115" cy="80" r="48" fill="url(#moon-disc-halo)"/>
+      <circle cx="115" cy="80" r="45" fill="none" stroke="#b6d2ee" stroke-width="0.75" stroke-dasharray="8 6" opacity="0.6"/>
+
+      <!-- 2. 盏中升腾的酒气流云与星烟 (Ethereal Wine Vapor & Cloud Ribbon) -->
+      <path d="M 112 66 C 104 50, 118 38, 132 34 C 148 29, 166 36, 178 28 C 188 22, 200 24, 212 30" 
+            fill="none" stroke="#adcdec" stroke-width="1.2" stroke-linecap="round" opacity="0.65" class="vapor-1"/>
+      <path d="M 118 64 C 126 52, 142 46, 155 52 C 168 58, 182 56, 194 48" 
+            fill="none" stroke="#cbe0f5" stroke-width="0.85" stroke-linecap="round" opacity="0.55" class="vapor-2"/>
+
+      <!-- 3. 升腾的星辰微露 (Twinkling Stardust & Wine Dew) -->
+      <g>
+        <!-- 露滴 A -->
+        <circle cx="132" cy="46" r="1.5" fill="#ffffff" filter="drop-shadow(0 0 2px #7ca7d6)" class="dew-a"/>
+        <!-- 露滴 B -->
+        <circle cx="152" cy="38" r="1.2" fill="#d9e9f8" class="dew-b"/>
+        <!-- 露滴 C (小四芒星露) -->
+        <path d="M 174 27 L 175 29 L 177 30 L 175 31 L 174 33 L 173 31 L 171 30 L 173 29 Z" fill="#ffffff" class="dew-c"/>
+      </g>
+
+      <!-- 4. 古典高足琉璃玉盏 (The Classical Crystalline Chalice) -->
+      <!-- 盏身高光底色与透光侧影 -->
+      <path d="M 94 65 C 96 86, 108 97, 115 97 C 122 97, 134 86, 136 65 Z" 
+            fill="url(#glass-cup-body)" 
+            stroke="#98bce0" 
+            stroke-width="0.9"/>
+      
+      <!-- 盏口晶莹外环 -->
+      <ellipse cx="115" cy="65" rx="21" ry="4.5" fill="none" stroke="#ffffff" stroke-width="1.1"/>
+      <ellipse cx="115" cy="65" rx="20.5" ry="4.2" fill="none" stroke="#9bbfe3" stroke-width="0.6"/>
+
+      <!-- 盏中倾注的月华酒浆 (Luminous Wine Nectar) -->
+      <ellipse cx="115" cy="71" rx="16.5" ry="3.6" fill="url(#wine-liquid)" filter="drop-shadow(0 0 3px #ffffff)"/>
+
+      <!-- 琉璃高足立柱与底座 (Stem & Flared Lotus Foot) -->
+      <!-- 纤细高足立柱 -->
+      <line x1="115" y1="97" x2="115" y2="114" stroke="#a0c2e4" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="114.5" y1="97" x2="114.5" y2="114" stroke="#ffffff" stroke-width="0.6"/>
+      
+      <!-- 茎节处的玉珠纽 (Jade Knot Bead) -->
+      <ellipse cx="115" cy="103" rx="3.5" ry="2.2" fill="#ffffff" stroke="#9ec0e2" stroke-width="0.8"/>
+
+      <!-- 翻卷如荷叶的古典覆托底座 (Flared Petal Base) -->
+      <path d="M 103 116 C 109 113.5, 121 113.5, 127 116 L 129 118.5 C 121 116.5, 109 116.5, 101 118.5 Z" 
+            fill="#dbe9f7" stroke="#97bcdfa0" stroke-width="0.8"/>
+      <ellipse cx="115" cy="118.5" rx="14" ry="2.8" fill="url(#glass-cup-body)" stroke="#a1c3e4" stroke-width="0.8"/>
+      <ellipse cx="115" cy="118.5" rx="13" ry="2" fill="none" stroke="#ffffff" stroke-width="0.6"/>
+
+      <!-- 琉璃杯壁纯白弧光反光条 (Glaze Specular Highlight) -->
+      <path d="M 96 66 C 98 83, 106 93, 114 96" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+      <path d="M 134 66 C 132 80, 126 90, 120 95" fill="none" stroke="#ffffff" stroke-width="0.6" stroke-linecap="round" opacity="0.6"/>
+    </g>
+
+    <!-- ==================== 右侧文案区 ==================== -->
+    <g text-anchor="middle">
+      <!-- 完整主标题：劝君更尽一杯酒，天下谁人不识君 -->
+      <text x="412" y="73" class="title-text">劝君更尽一杯酒，天下谁人不识君</text>
+      <!-- 副标题：楚门落幕语录 -->
+      <text x="412" y="99" class="subtitle-text">「如果再也不能见到你，那就祝你早安午安和晚安」</text>
+    </g>
+  </g>
+
+  <!-- 外层装池双线边框 -->
+  <rect x="17" y="17" width="646" height="126" rx="8" ry="8" fill="none" stroke="#d5e3f2" stroke-width="0.8" opacity="0.75"/>
+  <rect x="14" y="14" width="652" height="132" rx="10" ry="10" fill="none" stroke="#bcd0e5" stroke-width="1.1"/>
+
+  <!-- 四角古典星芒切角装点 -->
+  <g stroke="#9abddf" stroke-width="1" stroke-linecap="round">
+    <line x1="14" y1="28" x2="28" y2="14"/>
+    <circle cx="21" cy="21" r="1" fill="#9abddf"/>
+    <line x1="652" y1="14" x2="666" y2="28"/>
+    <circle cx="659" cy="21" r="1" fill="#9abddf"/>
+    <line x1="14" y1="132" x2="28" y2="146"/>
+    <circle cx="21" cy="139" r="1" fill="#9abddf"/>
+    <line x1="652" y1="146" x2="666" y2="132"/>
+    <circle cx="659" cy="139" r="1" fill="#9abddf"/>
+  </g>
+
+  <!-- 右下角专属铭文 -->
+  <text x="638" y="133" text-anchor="end" class="brand-text">LINUX DO &#xB7; @Stephan</text>
+</svg>

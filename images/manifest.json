@@ -1,6 +1,14 @@
 {
   "covers": [
     {
+      "filename": "white_jade_signature.svg",
+      "title": "white_jade_signature",
+      "format": "SVG",
+      "dimensions": "680 × 160 · 横幅",
+      "display": "banner",
+      "sortOrder": 3
+    },
+    {
       "filename": "xiaoshuo-download.png",
       "title": "xiaoshuo-download",
       "format": "PNG",
