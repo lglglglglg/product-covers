@@ -1,6 +1,20 @@
 {
   "covers": [
     {
+      "filename": "stephan_cute.jpg",
+      "title": "stephan_cute",
+      "format": "JPG",
+      "dimensions": "1376 × 768 · 16:9",
+      "sortOrder": 5
+    },
+    {
+      "filename": "stephan.jpg",
+      "title": "stephan",
+      "format": "JPG",
+      "dimensions": "1376 × 768 · 16:9",
+      "sortOrder": 4
+    },
+    {
       "filename": "white_jade_signature.svg",
       "title": "white_jade_signature",
       "format": "SVG",
